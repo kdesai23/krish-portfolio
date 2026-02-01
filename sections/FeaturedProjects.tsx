@@ -1,8 +1,11 @@
 import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
-import { featuredProjects } from "@/content/featured-projects";
+import { projects } from "@/content/projects";
 
 export default function FeaturedProjects() {
+
+    const featured = projects.filter((p) => p.featured);
+
     return (
         <section className ="py-10">
             <div className = "flex items-end justify-between gap-4">
@@ -22,8 +25,14 @@ export default function FeaturedProjects() {
             </div>
 
             <div className ="mt-6 grid gap-4 md:grid-cols-3">
-                {featuredProjects.map((p) => (
-                    <ProjectCard key= {p.href} {...p} />
+                {featured.map((p) => (
+                    <ProjectCard 
+                        key= {p.slug}
+                        title ={p.title}
+                        description ={p.description}
+                        tags={p.tags}
+                        href = {`/projects/${p.slug}`}
+                    />
                 ))}
             </div>
         </section>
