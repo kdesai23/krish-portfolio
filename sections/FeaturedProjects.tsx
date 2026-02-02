@@ -24,7 +24,7 @@ export default function FeaturedProjects() {
                 </Link>
             </div>
 
-            <div className ="mt-6 grid gap-4 md:grid-cols-3">
+            <div className ="mt-6 grid gap-4 md:grid-cols-2">
                 {featured.map((p) => (
                     <ProjectCard 
                         key= {p.slug}
